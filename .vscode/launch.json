@@ -1,0 +1,13 @@
+{
+   "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "kotlin",
+            "request": "launch",
+            "name": "Kotlin Launch",
+            "projectRoot": "/Users/codymolisee/Documents/leetcode-kotlin/app",
+            "mainClass": "/src/main/kotlin/cmolisee/leetcode/kt/App",
+            "preLaunchTask": "build"
+        }
+    ]
+}
