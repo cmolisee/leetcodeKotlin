@@ -3,3 +3,7 @@
 
 # Ignore Gradle build output directory
 build
+
+# Exclude log config and file
+logs.xml
+simplelogger.properties
