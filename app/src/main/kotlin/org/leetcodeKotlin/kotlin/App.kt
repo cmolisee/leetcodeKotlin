@@ -1,20 +1,18 @@
 package org.leetcodeKotlin.kotlin
 
 import mu.KotlinLogging
+import org.leetcodeKotlin.kotlin.seventyFive.PivotIndex
 
 private val logger = KotlinLogging.logger {} 
 class App {
     val greeting: String
         get() {
+            logger.info("hello world")
             return "Hello World!"
         }
 }
 
 fun main() {
     println(App().greeting)
-    logger.trace { "This is trace log" }
-    logger.debug { "This is debug log" }
-    logger.info { "This is info log" }
-    logger.warn { "This is warn log" }
-    logger.error { "This is error log" }
+    PivotIndex().pivotIndex(intArrayOf(-1,-1,0,0,-1,-1))
 }

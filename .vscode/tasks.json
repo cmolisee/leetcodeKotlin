@@ -20,7 +20,7 @@
         {
             "label": "test",
             "type": "shell",
-            "command": "./gradlew clean test",
+            "command": "./gradlew clean check -i",
             "problemMatcher": []
         }
     ]
