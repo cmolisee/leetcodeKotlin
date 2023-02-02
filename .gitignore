@@ -3,7 +3,6 @@
 
 # Ignore Gradle build output directory
 build
+bin
 
-# Exclude log config and file
-logs.xml
-simplelogger.properties
+.vscode
