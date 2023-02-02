@@ -15,7 +15,6 @@ dependencies {
     implementation("com.google.guava:guava:31.1-jre")
     implementation("io.github.microutils:kotlin-logging:3.0.4")
     implementation("org.jetbrains.kotlin:kotlin-test-junit5")
-    implementation("org.slf4j:slf4j-simple:2.0.6")
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.9.1")
     testImplementation("org.junit.jupiter:junit-jupiter-params:5.9.1")
 
