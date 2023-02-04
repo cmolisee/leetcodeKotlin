@@ -7,23 +7,22 @@ import org.junit.jupiter.params.provider.MethodSource;
 import kotlin.test.assertEquals
 
 class IsSubsequenceTest {
-    // Arguments.of(input, expected)
     companion object {
         @JvmStatic
         fun args() = listOf(
-            Arguments.of(Pair("axc", "ahbgdc"), false),
-            Arguments.of(Pair("abc", "ahbgdc"), true),
-            Arguments.of(Pair("", ""), true),
-            Arguments.of(Pair("", "abcdefg"), true),
-            Arguments.of(Pair("abc", ""), false),
-            Arguments.of(Pair("bb", "abcddei"), false),
+            Arguments.of(false, Pair("axc", "ahbgdc")),
+            Arguments.of(true, Pair("abc", "ahbgdc")),
+            Arguments.of(true, Pair("", "")),
+            Arguments.of(true, Pair("", "abcdefg")),
+            Arguments.of(false, Pair("abc", "")),
+            Arguments.of(false, Pair("bb", "abcddei")),
         )
     }
     
 
-    @ParameterizedTest(name = "{0} should return {1}")
+    @ParameterizedTest(name = "{1} should return {0}")
     @MethodSource("args")
-    fun `Is Subsequence`(input: Pair<String, String>, expected: Boolean) {
+    fun `Is Subsequence`(expected: Boolean, input: Pair<String, String>) {
         assertEquals(expected, isSubsequence(input.first, input.second))
     }
 }

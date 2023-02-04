@@ -7,21 +7,20 @@ import org.junit.jupiter.params.provider.MethodSource;
 import kotlin.test.assertEquals
 
 class IsIsomorphicTest {
-    // Arguments.of(input, expected)
     companion object {
         @JvmStatic
         fun args() = listOf(
-            Arguments.of(Pair("egg", "add"), true),
-            Arguments.of(Pair("foo", "bar"), false),
-            Arguments.of(Pair("paper", "title"), true),
-            Arguments.of(Pair("bbbaaaba", "aaabbbba"), false),
+            Arguments.of(true, Pair("egg", "add")),
+            Arguments.of(false, Pair("foo", "bar")),
+            Arguments.of(true, Pair("paper", "title")),
+            Arguments.of(false, Pair("bbbaaaba", "aaabbbba")),
         )
     }
     
 
-    @ParameterizedTest(name = "{0} should return {1}")
+    @ParameterizedTest(name = "{1} should return {0}")
     @MethodSource("args")
-    fun `Is Isomorphic`(input: Pair<String, String>, expected: Boolean) {
+    fun `Is Isomorphic`(expected: Boolean, input: Pair<String, String>) {
         assertEquals(expected, isIsomorphic(input.first, input.second))
     }
 }

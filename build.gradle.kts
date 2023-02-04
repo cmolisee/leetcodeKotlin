@@ -104,7 +104,7 @@ tasks.create("execute", type = JavaExec::class) {
         executor.classpath = runtimeClasspath
     }
     jvmArgs = listOf("-ea")
-    main = "org.cmolisee.problems." + project.properties["mainClass"].toString() + "Kt"
+    main = project.properties["mainClass"].toString()
 
     doLast {
         if (executionResult.get().exitValue != 0) {

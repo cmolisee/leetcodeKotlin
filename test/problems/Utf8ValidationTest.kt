@@ -7,19 +7,18 @@ import org.junit.jupiter.params.provider.MethodSource;
 import kotlin.test.assertEquals
 
 class Utf8ValidationTest {
-    // Arguments.of(input, expected)
     companion object {
         @JvmStatic
         fun args() = listOf(
-            Arguments.of(intArrayOf(197,130,1), true),
-            Arguments.of(intArrayOf(235,140,4), false),
-            Arguments.of(intArrayOf(255), false),
+            Arguments.of(true, intArrayOf(197,130,1)),
+            Arguments.of(false, intArrayOf(235,140,4)),
+            Arguments.of(false, intArrayOf(255)),
         )
     }
     
-    @ParameterizedTest(name = "{0} should return {1}")
+    @ParameterizedTest(name = "{1} should return {0}")
     @MethodSource("args")
-    fun `UTF-8 Validation`(input: IntArray, expected: Boolean) {
+    fun `UTF-8 Validation`(expected: Boolean, input: IntArray) {
         assertEquals(expected, validUtf8(input))
     }
 }

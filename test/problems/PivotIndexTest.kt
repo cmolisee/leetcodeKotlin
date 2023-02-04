@@ -7,21 +7,20 @@ import org.junit.jupiter.params.provider.MethodSource;
 import kotlin.test.assertEquals
 
 class PivotIndexTest {
-    // Arguments.of(input, expected)
     companion object {
         @JvmStatic
         fun args() = listOf(
-            Arguments.of(intArrayOf(1,2,3), -1),
-            Arguments.of(intArrayOf(2,1,-1), 0),
-            Arguments.of(intArrayOf(1,7,3,6,5,6), 3),
-            Arguments.of(intArrayOf(-1,-1,0,0,-1,-1), 2)
+            Arguments.of(-1, intArrayOf(1,2,3)),
+            Arguments.of(0, intArrayOf(2,1,-1)),
+            Arguments.of(3, intArrayOf(1,7,3,6,5,6)),
+            Arguments.of(2, intArrayOf(-1,-1,0,0,-1,-1))
         )
     }
     
 
-    @ParameterizedTest(name = "{0} should return {1}")
+    @ParameterizedTest(name = "{1} should return {0}")
     @MethodSource("args")
-    fun `Pivot Index`(input: IntArray, expected: Int) {
+    fun `Pivot Index`(expected: Int, input: IntArray) {
         assertEquals(expected, pivotIndex(input))
     }
 }

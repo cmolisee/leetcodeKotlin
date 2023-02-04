@@ -1,7 +1,7 @@
 package org.cmolisee.problems
 
 import org.cmolisee.problems.utils.ListNode
-import org.cmolisee.problems.utils.assertLinkedListWithMessage
+import org.cmolisee.problems.utils.assertLinkedListEquals
 
 /**
  * You are given the heads of two sorted linked lists list1 and list2.
@@ -26,6 +26,6 @@ fun main() {
         val ll1 = ListNode.from(1,2,3)
         val ll2 = ListNode.from(1,3,4)
         val expected = ListNode.from(1,1,2,3,3,4)
-        assertLinkedListWithMessage(expected, mergeTwoLists(ll1, ll2), "Actual ListNode is equal to Expected ListNode")
+        println(assertLinkedListEquals(expected, mergeTwoLists(ll1, ll2)))
     }
 }

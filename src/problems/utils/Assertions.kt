@@ -53,19 +53,38 @@ fun assertContentEqualsWithMessage(expected: IntArray, actual: IntArray, success
     println("$ansiGreen PASS: " + (successMessage ?: "Success") + "$ansiWhite")
 }
 
-fun assertLinkedListWithMessage(actual: ListNode?, expected: ListNode?, successMessage: String?) {
-    try {
-        assertEquals(expected, actual, "$ansiRed assertLinkedListWithMessage Failed $ansiWhite")
+fun assertLinkedListEquals(expected: ListNode?, actual: ListNode?): String {
+    assertEquals(expected?.`val`, actual?.`val`, "$ansiRed ${expected?.`val`} DNE ${actual?.`val`} $ansiWhite")
 
-        if (actual?.next != null && expected?.next != null) {
-            assertLinkedListWithMessage(expected.next, actual.next, successMessage)
-        } else if (actual?.next != null || expected?.next != null) {
-            throw Exception("$ansiRed assertLinkedListWithMessage Failed $ansiWhite")
-        }
-    } catch (e: Exception) {
-        println(e.message)
-        throw e
+    if (
+        actual?.next == null && expected?.next != null ||
+        actual?.next != null && expected?.next == null
+    ) {
+        throw Exception("$ansiRed Failed: Linked Lists do not have the same size $ansiWhite \n") 
     }
 
-    println("$ansiGreen PASS: " + (successMessage ?: "Success") + "$ansiWhite")
+    if (actual?.next != null && expected?.next != null) {
+        assertLinkedListEquals(expected.next, actual.next)
+    }
+    
+    return "$ansiGreen PASS: Expected ListNode is equal too Actual ListNode $ansiWhite"
+}
+
+fun assertLinkedList(expected: ListNode?, actual: ListNode?) {
+    // println(expected?.`val`)
+    // println(actual?.`val`)
+    assertEquals(expected?.`val`, actual?.`val`)
+
+    if (
+        actual?.next == null && expected?.next != null ||
+        actual?.next != null && expected?.next == null
+    ) {
+        throw Exception("$ansiRed Failed: Linked Lists do not have the same size $ansiWhite \n") 
+    }
+
+    if (expected?.next != null && actual?.next != null) {
+        assertLinkedList(expected.next, actual.next)
+    }
+
+    return
 }
