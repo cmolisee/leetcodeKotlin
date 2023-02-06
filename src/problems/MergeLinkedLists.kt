@@ -1,7 +1,7 @@
 package org.cmolisee.problems
 
 import org.cmolisee.problems.utils.ListNode
-import org.cmolisee.problems.utils.assertLinkedListEquals
+import org.cmolisee.problems.utils.testLinkedListIsEqual
 
 /**
  * You are given the heads of two sorted linked lists list1 and list2.
@@ -23,9 +23,9 @@ fun mergeTwoLists(list1: ListNode?, list2: ListNode?): ListNode? {
 
 fun main() {
     run {
-        val ll1 = ListNode.from(1,2,3)
-        val ll2 = ListNode.from(1,3,4)
-        val expected = ListNode.from(1,1,2,3,3,4)
-        println(assertLinkedListEquals(expected, mergeTwoLists(ll1, ll2)))
+        testLinkedListIsEqual(
+            ListNode.from(1,1,2,3,3,4), 
+            mergeTwoLists(ListNode.from(1,2,3), ListNode.from(1,3,4))
+        )
     }
 }

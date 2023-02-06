@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import org.cmolisee.problems.utils.ListNode
-import org.cmolisee.problems.utils.assertLinkedList
+import org.cmolisee.problems.utils.testLinkedListIsEqual
 
 class MergeLinkedListsTest {
     companion object {
@@ -30,7 +30,7 @@ class MergeLinkedListsTest {
 
     @ParameterizedTest(name = "{1} should return {0}")
     @MethodSource("args")
-    fun `Merge Two Linked Lists`(expected: ListNode, input: Pair<ListNode?, ListNode?>) {
-        assertLinkedList(expected, mergeTwoLists(input.first, input.second))
+    fun `Test mergeTwoLists`(expected: ListNode, input: Pair<ListNode?, ListNode?>) {
+        testLinkedListIsEqual(expected, mergeTwoLists(input.first, input.second))
     }
 }

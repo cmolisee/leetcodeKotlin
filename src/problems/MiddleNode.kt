@@ -1,7 +1,7 @@
 
 package org.cmolisee.problems
 
-import org.cmolisee.problems.utils.assertLinkedListEquals
+import org.cmolisee.problems.utils.testLinkedListIsEqual
 import org.cmolisee.problems.utils.ListNode
 
 fun middleNode(head: ListNode?): ListNode? {
@@ -19,6 +19,6 @@ fun middleNode(head: ListNode?): ListNode? {
 
 fun main() {
     run {
-        assertLinkedListEquals(ListNode(3), middleNode(ListNode.from(1,2,3,4,5)))
+        testLinkedListIsEqual(ListNode.from(3,4,5), middleNode(ListNode.from(1,2,3,4,5)))
     }
 }

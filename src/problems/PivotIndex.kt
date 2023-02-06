@@ -1,7 +1,6 @@
 package org.cmolisee.problems
 
-import org.cmolisee.problems.utils.assertTrueWithMessage
-import org.cmolisee.problems.utils.assertEqualsWithMessage
+import org.cmolisee.problems.utils.testIsEqual
 
 /**
  * Given an array of integers nums, calculate the pivot index of this array.
@@ -25,9 +24,7 @@ fun pivotIndex(nums: IntArray): Int {
 
 fun main() {
     run {
-        val a = intArrayOf(1,2,3)
-        val b = intArrayOf(2,1,-1)
-        assertEqualsWithMessage(-1, pivotIndex(a), "Pivot index of [${a.joinToString()}] is -1")
-        assertEqualsWithMessage(0, pivotIndex(b), "Pivot index of [${b.joinToString()}] is 0")
+        testIsEqual(-1, pivotIndex(intArrayOf(1,2,3)))
+        testIsEqual(0, pivotIndex(intArrayOf(2,1,-1)))
     }
 }

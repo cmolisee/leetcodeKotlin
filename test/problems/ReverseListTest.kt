@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import org.cmolisee.problems.utils.ListNode
-import org.cmolisee.problems.utils.assertLinkedList
+import org.cmolisee.problems.utils.testLinkedListIsEqual
 
 class reverseList {
     companion object {
@@ -23,7 +23,7 @@ class reverseList {
 
     @ParameterizedTest(name = "{1} should return {0}")
     @MethodSource("args")
-    fun `reverseList`(expected: ListNode?, input: ListNode?) {
-        assertLinkedList(expected, reverseList(input))
+    fun `Test reverseList`(expected: ListNode?, input: ListNode?) {
+        testLinkedListIsEqual(expected, reverseList(input))
     }
 }

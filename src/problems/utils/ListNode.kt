@@ -21,4 +21,12 @@ class ListNode(var `val`: Int) {
             return from(intArrayOf(value, *others.toTypedArray().toIntArray()))
         }
     }
+
+    override fun toString(): String {
+        return if (next != null) {
+            "$`val`, ${next.toString()}"
+        } else {
+            "$`val`"
+        }
+    }
 }

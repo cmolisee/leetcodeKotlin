@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import kotlin.test.assertEquals
+import org.cmolisee.problems.utils.testIsEqual
 
 class Utf8ValidationTest {
     companion object {
@@ -18,7 +18,7 @@ class Utf8ValidationTest {
     
     @ParameterizedTest(name = "{1} should return {0}")
     @MethodSource("args")
-    fun `UTF-8 Validation`(expected: Boolean, input: IntArray) {
-        assertEquals(expected, validUtf8(input))
+    fun `Test validUtf8`(expected: Boolean, input: IntArray) {
+        testIsEqual(expected, validUtf8(input))
     }
 }

@@ -1,6 +1,6 @@
 package org.cmolisee.problems
 
-import org.cmolisee.problems.utils.assertLinkedListEquals
+import org.cmolisee.problems.utils.testLinkedListIsEqual
 import org.cmolisee.problems.utils.ListNode
 
 /**
@@ -25,6 +25,6 @@ fun reverseList(head: ListNode?): ListNode? {
 
 fun main() {
     run {
-        assertLinkedListEquals(ListNode.from(3,2,1), reverseList(ListNode.from(1,2,3)))
+        testLinkedListIsEqual(ListNode.from(3,2,1), reverseList(ListNode.from(1,2,3)))
     }
 }

@@ -1,7 +1,7 @@
 package org.cmolisee.problems
 
-import org.cmolisee.problems.utils.assertTrueWithMessage
-import org.cmolisee.problems.utils.assertFalseWithMessage
+import org.cmolisee.problems.utils.testIsTrue
+import org.cmolisee.problems.utils.testIsFalse
 
 /**
  * Given an integer array data representing the data, return whether it is a valid UTF-8 
@@ -39,9 +39,7 @@ fun validUtf8(data: IntArray): Boolean {
 
 fun main() {
     run {
-        val arg1 = intArrayOf(197,130,1)
-        val arg2 = intArrayOf(235,140,4)
-        assertTrueWithMessage(validUtf8(arg1), "[${arg1.joinToString()}] is valid UTF-8")
-        assertFalseWithMessage(validUtf8(arg2), "[${arg2.joinToString()}] is valid UTF-8")
+        testIsTrue(validUtf8(intArrayOf(197,130,1)))
+        testIsFalse(validUtf8(intArrayOf(235,140,4)))
     }
 }

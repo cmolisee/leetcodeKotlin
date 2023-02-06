@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import kotlin.test.assertEquals
+import org.cmolisee.problems.utils.testIsEqual
 
 class IsSubsequenceTest {
     companion object {
@@ -22,7 +22,7 @@ class IsSubsequenceTest {
 
     @ParameterizedTest(name = "{1} should return {0}")
     @MethodSource("args")
-    fun `Is Subsequence`(expected: Boolean, input: Pair<String, String>) {
-        assertEquals(expected, isSubsequence(input.first, input.second))
+    fun `Test isSubsequence`(expected: Boolean, input: Pair<String, String>) {
+        testIsEqual(expected, isSubsequence(input.first, input.second))
     }
 }

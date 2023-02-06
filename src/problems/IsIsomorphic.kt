@@ -1,7 +1,7 @@
 package org.cmolisee.problems
 
-import org.cmolisee.problems.utils.assertTrueWithMessage
-import org.cmolisee.problems.utils.assertFalseWithMessage
+import org.cmolisee.problems.utils.testIsTrue
+import org.cmolisee.problems.utils.testIsFalse
 
 /**
  * Given two strings s and t, determine if they are isomorphic.
@@ -37,11 +37,7 @@ fun isIsomorphic(s: String, t: String): Boolean {
 
 fun main() {
     run {
-        val arg1 = "egg"
-        val arg2 = "add"
-        val arg3 = "foo"
-        val arg4 = "bar"
-        assertTrueWithMessage(isIsomorphic(arg1, arg2), "${arg1} and ${arg2} are isomorphic")
-        assertFalseWithMessage(isIsomorphic(arg3, arg4), "${arg3} and ${arg4} are not isomorphic")
+        testIsTrue(isIsomorphic("egg", "add"))
+        testIsFalse(isIsomorphic("foo", "bar"))
     }
 }

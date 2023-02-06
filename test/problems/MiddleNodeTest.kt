@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import org.cmolisee.problems.utils.ListNode
-import org.cmolisee.problems.utils.assertLinkedList
+import org.cmolisee.problems.utils.testLinkedListIsEqual
 
 class middleNode {
     companion object {
@@ -21,7 +21,7 @@ class middleNode {
 
     @ParameterizedTest(name = "{1} should return {0}")
     @MethodSource("args")
-    fun `middleNode`(expected: ListNode, input: ListNode) {
-        assertLinkedList(expected, middleNode(input))
+    fun `Test middleNode`(expected: ListNode?, input: ListNode?) {
+        testLinkedListIsEqual(expected, middleNode(input))
     }
 }

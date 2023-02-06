@@ -1,7 +1,7 @@
 package org.cmolisee.problems
 
-import org.cmolisee.problems.utils.assertTrueWithMessage
-import org.cmolisee.problems.utils.assertFalseWithMessage
+import org.cmolisee.problems.utils.testIsTrue
+import org.cmolisee.problems.utils.testIsFalse
 
 /**
  * Given two strings s and t, return true if s is a subsequence of t, or false otherwise.
@@ -24,11 +24,7 @@ fun isSubsequence(s: String, t: String): Boolean {
 
 fun main() {
     run {
-        val arg1 = "axc"
-        val arg2 = "abc"
-        val expected1 = "ahbgdc"
-        val expected2 = "ahbgdc"
-        assertFalseWithMessage(isSubsequence(arg1, expected1), "${arg1} is not a subsequence of ${expected1}")
-        assertTrueWithMessage(isSubsequence(arg2, expected2), "${arg2} is a subsequence of ${expected2}")
+        testIsFalse(isSubsequence("axc", "ahbgdc"))
+        testIsTrue(isSubsequence("abc", "ahbgdc"))
     }
 }

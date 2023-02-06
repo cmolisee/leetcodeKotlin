@@ -9,82 +9,72 @@ private val ansiGreen = "\u001B[32m"
 private val ansiRed = "\u001B[31m"
 val ansiWhite = "\u001B[37m"
 
-fun assertTrueWithMessage(actual: Boolean, successMessage: String?) {
+fun testIsTrue(actual: Boolean) {
     try {
-        assertTrue(actual, "$ansiRed assertTrueWithMessage Failed $ansiWhite")
+        assertTrue(actual, "$ansiRed Failed: expected (true), actual ($actual) $ansiWhite")
     } catch(e: Exception) {
         println(e.message)
         throw e
     }
 
-    println("$ansiGreen PASS: " + (successMessage ?: "Success") + "$ansiWhite")
+    println("$ansiGreen PASS: expected (true), actual ($actual) $ansiWhite")
 }
 
-fun assertFalseWithMessage(actual: Boolean, successMessage: String?) {
+fun testIsFalse(actual: Boolean) {
     try {
-        assertFalse(actual, "$ansiRed assertFalseWithMessage Failed $ansiWhite")
+        assertFalse(actual, "$ansiRed Failed: expected (false), actual ($actual) $ansiWhite")
     } catch(e: Exception) {
         println(e.message)
         throw e
     }
 
-    println("$ansiGreen PASS: " + (successMessage ?: "Success") + "$ansiWhite")
+    println("$ansiGreen PASS: expected (false), actual ($actual) $ansiWhite")
 }
 
-fun <T> assertEqualsWithMessage(expected: T, actual: T, successMessage: String?) {
+fun <T> testIsEqual(expected: T, actual: T) {
     try {
-        assertEquals(expected, actual, "$ansiRed assertEqualsWithMessage Failed $ansiWhite")
+        assertEquals(expected, actual, "$ansiRed Failed: expected ($expected), actual ($actual) $ansiWhite")
     } catch (e: Exception) {
         println(e.message)
         throw e
     }
 
-    println("$ansiGreen PASS: " + (successMessage ?: "Success") + "$ansiWhite")
+    println("$ansiGreen PASS: expected ($expected), actual ($actual) $ansiWhite")
 }
 
-fun assertContentEqualsWithMessage(expected: IntArray, actual: IntArray, successMessage: String?) {
+fun testContentIsEqual(expected: IntArray, actual: IntArray) {
     try {
-        assertContentEquals(expected, actual, "$ansiRed assertContentEqualsWithMessage Failed $ansiWhite")
+        assertContentEquals(expected, actual, "$ansiRed Failed: expected [ ${expected.joinToString()} ], actual [ ${actual.joinToString()} ] $ansiWhite")
     } catch (e: Exception) {
         println(e.message)
         throw e
     }
 
-    println("$ansiGreen PASS: " + (successMessage ?: "Success") + "$ansiWhite")
+    println("$ansiGreen PASS: expected [ ${expected.joinToString()} ], actual [ ${actual.joinToString()} ] $ansiWhite")
 }
 
-fun assertLinkedListEquals(expected: ListNode?, actual: ListNode?): String {
-    assertEquals(expected?.`val`, actual?.`val`, "$ansiRed ${expected?.`val`} DNE ${actual?.`val`} $ansiWhite")
+fun testLinkedListIsEqual(expected: ListNode?, actual: ListNode?) {
+    try {
+        _testLinkedListIsEqual(expected, actual)
+    } catch(e: Exception) {
+        println(e.message)
+        return
+    }
+    println("$ansiGreen PASS: expected [ $expected ], actual [ $actual ] $ansiWhite")
+}
+
+private fun _testLinkedListIsEqual(expected: ListNode?, actual: ListNode?) {
+    val errorMessage: String = "$ansiRed Failed: expected [ $expected ], actual [ $actual ] $ansiWhite"
+    assertEquals(expected?.`val`, actual?.`val`,  errorMessage)
 
     if (
         actual?.next == null && expected?.next != null ||
         actual?.next != null && expected?.next == null
     ) {
-        throw Exception("$ansiRed Failed: Linked Lists do not have the same size $ansiWhite \n") 
-    }
-
-    if (actual?.next != null && expected?.next != null) {
-        assertLinkedListEquals(expected.next, actual.next)
-    }
-    
-    return "$ansiGreen PASS: Expected ListNode is equal too Actual ListNode $ansiWhite"
-}
-
-fun assertLinkedList(expected: ListNode?, actual: ListNode?) {
-    // println(expected?.`val`)
-    // println(actual?.`val`)
-    assertEquals(expected?.`val`, actual?.`val`)
-
-    if (
-        actual?.next == null && expected?.next != null ||
-        actual?.next != null && expected?.next == null
-    ) {
-        throw Exception("$ansiRed Failed: Linked Lists do not have the same size $ansiWhite \n") 
+        throw Exception(errorMessage) 
     }
 
     if (expected?.next != null && actual?.next != null) {
-        assertLinkedList(expected.next, actual.next)
+        _testLinkedListIsEqual(expected.next, actual.next)
     }
-
-    return
 }

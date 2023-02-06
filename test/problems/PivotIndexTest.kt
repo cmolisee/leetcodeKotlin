@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import kotlin.test.assertEquals
+import org.cmolisee.problems.utils.testIsEqual
 
 class PivotIndexTest {
     companion object {
@@ -20,7 +20,7 @@ class PivotIndexTest {
 
     @ParameterizedTest(name = "{1} should return {0}")
     @MethodSource("args")
-    fun `Pivot Index`(expected: Int, input: IntArray) {
-        assertEquals(expected, pivotIndex(input))
+    fun `Test pivotIndex`(expected: Int, input: IntArray) {
+        testIsEqual(expected, pivotIndex(input))
     }
 }

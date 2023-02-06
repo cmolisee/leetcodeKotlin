@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import kotlin.test.assertContentEquals
+import org.cmolisee.problems.utils.testContentIsEqual
 
 class RunningSum1DTest {
     companion object {
@@ -18,7 +18,7 @@ class RunningSum1DTest {
     
     @ParameterizedTest(name = "{1} should return {0}")
     @MethodSource("args")
-    fun `Running sum for 1D IntArray`(expected: IntArray, input: IntArray) {
-        assertContentEquals(expected, runningSum(input))
+    fun `Test runningSum`(expected: IntArray, input: IntArray) {
+        testContentIsEqual(expected, runningSum(input))
     }
 }
