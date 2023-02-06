@@ -11,7 +11,7 @@ WHITE = "\u001B[37m"
 content = """
 package org.cmolisee.problems
 
-import org.cmolisee.problems.utils.assertEqualsWithMessage
+import org.cmolisee.problems.utils.testIsEqual
 
 fun FILE_NAME(input: String): String {
     return "expected"
@@ -19,7 +19,7 @@ fun FILE_NAME(input: String): String {
 
 fun main() {
     run {
-        assertEqualsWithMessage("expected", FILE_NAME(), "message")
+        testIsEqual("expected", FILE_NAME(), "message")
     }
 }
 """
@@ -31,7 +31,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import kotlin.test.assertEquals
+import org.cmolisee.problems.utils.testIsEqual
 
 class FILE_NAME {
     companion object {
@@ -44,8 +44,8 @@ class FILE_NAME {
 
     @ParameterizedTest(name = "{1} should return {0}")
     @MethodSource("args")
-    fun `FILE_NAME`(expected: Boolean, input: Boolean) {
-        assertEquals(expected, FILE_NAME(input))
+    fun `Test FILE_NAME`(expected: Boolean, input: Boolean) {
+        testIsEqual(expected, FILE_NAME(input))
     }
 }
 """
