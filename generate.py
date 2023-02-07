@@ -8,8 +8,7 @@ GREEN = "\u001B[32m"
 RED = "\u001B[31m"
 WHITE = "\u001B[37m"
 
-content = """
-package org.cmolisee.problems
+content = """package org.cmolisee.problems
 
 import org.cmolisee.problems.utils.testIsEqual
 
@@ -19,13 +18,12 @@ fun FILE_NAME(input: String): String {
 
 fun main() {
     run {
-        testIsEqual("expected", FILE_NAME(), "message")
+        testIsEqual("expected", FILE_NAME())
     }
 }
 """
 
-testContent = """
-package org.cmolisee.problems
+testContent = """package org.cmolisee.problems
 
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest;
