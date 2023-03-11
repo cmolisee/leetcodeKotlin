@@ -14,7 +14,7 @@ import org.cmolisee.problems.utils.TreeNode
  */
 fun levelOrder(root: TreeNode?): List<List<Int>> {
     if (root == null) {
-        return listOf(emptyList());
+        return listOf();
     }
 
     val levelOrderList = mutableListOf<List<Int>>()

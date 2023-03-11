@@ -4,7 +4,7 @@ class Node(var `val`: Int) {
     var children: List<Node?> = emptyList()
 
     companion object {
-        // implement to create n-ary tree from array (i.e. [1,null,2,3,4,null,2,3] )
+        // implement to create n-ary tree from array (i.e. [1,-1,2,3,4,-1,2,3] )
     }
 
     override fun toString(): String {
